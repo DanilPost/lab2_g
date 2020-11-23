@@ -57,7 +57,6 @@ void Cache_tester::all_experiments()
         mass_shag[a] = 1;
       }
     }
-    
     unsigned int a = time(NULL);
     for (int j = 0; j < size; j+=1)
     {
