@@ -46,11 +46,10 @@ void Cache_tester::all_experiments()
       mass_shag[j] = shag;
       shag = shag + 16;
     }
-
+    unsigned int b = time(NULL);
     while (k < m)
     {
-      srand(time(NULL));
-      int a = rand()%m;
+      int a = rand_r(&b)%m;
       if (mass_shag[a] != 1)
       {
         array_rand[k] = mass_shag[a];
@@ -58,11 +57,10 @@ void Cache_tester::all_experiments()
         mass_shag[a] = 1;
       }
     }
-
+    unsigned int a = time(NULL);
     for (int j = 0; j < size; j+=1)
     {
-      srand(time(0));
-      array[j] = rand()%100;
+      array[j] = rand_r(&a)%100;
     }
     experiment_direct(array, size, i);
     experiment_reverse(array, size, i);
@@ -73,27 +71,27 @@ void Cache_tester::all_experiments()
 
 void Cache_tester::experiment_direct(uint32_t * array, int size, int i)
 {
-    uint32_t b;
+  uint32_t b;
+  for (int j = size; j > 0; j -= 16)
+  {
+    b = array[j];
+  }
+  auto start = std::chrono::high_resolution_clock::now();
+  for (int k = 0; k < 1000; ++k) {
     for (int j = size; j > 0; j -= 16)
     {
       b = array[j];
     }
-    auto start = std::chrono::high_resolution_clock::now();
-    for (int k = 0; k < 1000; ++k) {
-      for (int j = size; j > 0; j -= 16)
-      {
-        b = array[j];
-      }
-    }
-    auto finish = std::chrono::high_resolution_clock::now();
-    b += b;
-    r_time = std::chrono::duration_cast<std::chrono::microseconds>
-        (finish - start).count();
-    r_time = r_time / 1000;
-    std::cout << massive_size[i] << "Kb"
-              << " = " << r_time << " mcs" << std::endl;
-    direct.time.push_back(r_time);
-    direct.number.push_back(i);
+  }
+  auto finish = std::chrono::high_resolution_clock::now();
+  b += b;
+  r_time = std::chrono::duration_cast<std::chrono::microseconds>
+      (finish - start).count();
+  r_time = r_time / 1000;
+  std::cout << massive_size[i] << "Kb"
+            << " = " << r_time << " mcs" << std::endl;
+  direct.time.push_back(r_time);
+  direct.number.push_back(i);
 }
 
 void Cache_tester::experiment_reverse(uint32_t * array, int size, int i)
