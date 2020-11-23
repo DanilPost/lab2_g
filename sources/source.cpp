@@ -15,7 +15,7 @@ void Cache_tester::set_massive_size()
   a = min_size * 0.5;
   massive_size.push_back(a);
   n += 1;
-  while( a <= max_size/2 )
+  while (a <= max_size/2)
   {
     a = a * 2;
     n += 1;
@@ -49,10 +49,10 @@ void Cache_tester::all_experiments()
 
     srand(time(NULL));
 
-    while(k < m)
+    while (k < m)
     {
       int a = rand()%m;
-      if(mass_shag[a] != 1)
+      if (mass_shag[a] != 1)
       {
         array_rand[k] = mass_shag[a];
         k += 1;
@@ -66,7 +66,7 @@ void Cache_tester::all_experiments()
     }
     experiment_direct(array, size, i);
     experiment_reverse(array, size, i);
-    experiment_random(array,m, i, array_rand);
+    experiment_random(array, m, i, array_rand);
   }
   out_info();
 }
@@ -87,8 +87,8 @@ void Cache_tester::experiment_direct(uint32_t * array, int size, int i)
     }
     auto finish = std::chrono::high_resolution_clock::now();
     b += b;
-    r_time = std::chrono::duration_cast<std::chrono::microseconds>(finish - start)
-               .count();
+    r_time = std::chrono::duration_cast<std::chrono::microseconds>
+        (finish - start).count();
     r_time = r_time / 1000;
     std::cout << massive_size[i] << "Kb"
               << " = " << r_time << " mcs" << std::endl;
@@ -121,9 +121,9 @@ void Cache_tester::experiment_reverse(uint32_t * array, int size, int i)
   reverse.number.push_back(i);
 }
 
-void Cache_tester::experiment_random(uint32_t *array, int size, int i, int *shag)
+void Cache_tester::experiment_random(uint32_t *array,
+                                     int size, int i, int *shag)
 {
-
   uint32_t b;
   for (int j = 0; j < size; j += 1)
   {
@@ -165,7 +165,8 @@ void Cache_tester::out_info()
       std::cout << "       buffer_size: " << massive_size[i] << " Kb"
                 << std::endl;
       std::cout << "     result:" << std::endl;
-      std::cout << "       duration: " << mass_out[j].time[i] << " mcs" << std::endl;
+      std::cout << "       duration: " << mass_out[j].time[i]
+                << " mcs" << std::endl;
     }
     std::cout << std::endl;
   }

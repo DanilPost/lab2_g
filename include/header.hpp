@@ -7,6 +7,7 @@
 #include <iostream>
 #include <chrono>
 #include <time.h>
+#include <random>
 
 struct Out_put
 {
