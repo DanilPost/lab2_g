@@ -22,9 +22,9 @@ class Cache_tester
   explicit Cache_tester(int min, int max);
   void set_massive_size();
   void all_experiments();
-  void experiment_direct(int size, int i);
-  void experiment_reverse(int size, int i);
-  void experiment_random(int size, int i, int *shag);
+  void experiment_direct(int* array, int size, int i);
+  void experiment_reverse(int* array, int size, int i);
+  void experiment_random(int* array, int size, int i, int *shag);
   void out_info();
   ~Cache_tester();
  private:
@@ -33,7 +33,6 @@ class Cache_tester
   struct Out_put reverse;
   struct Out_put random;
   int n = 0;
-  int* array;
   int min_size;
   int max_size;
   float r_time = 0;
