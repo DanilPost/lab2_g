@@ -47,7 +47,7 @@ void Cache_tester::all_experiments()
       shag = shag + 16;
     }
 
-    srand(time(NULL));
+    //srand(time(NULL));
 
     while (k < m)
     {
