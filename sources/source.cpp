@@ -35,7 +35,7 @@ void Cache_tester::all_experiments()
   for ( int i = 0; i < n; ++i )
   {
     int size = massive_size[i] * 256;
-    uint32_t *array = new uint32_t[size];
+    int *array = new int[size];
     int m = massive_size[i] * 16;
     int k = 0;
     int shag = 0;
@@ -69,9 +69,9 @@ void Cache_tester::all_experiments()
   out_info();
 }
 
-void Cache_tester::experiment_direct(uint32_t * array, int size, int i)
+void Cache_tester::experiment_direct(int *array, int size, int i)
 {
-  uint32_t b;
+  int b;
   for (int j = size; j > 0; j -= 16)
   {
     b = array[j];
@@ -94,9 +94,9 @@ void Cache_tester::experiment_direct(uint32_t * array, int size, int i)
   direct.number.push_back(i);
 }
 
-void Cache_tester::experiment_reverse(uint32_t * array, int size, int i)
+void Cache_tester::experiment_reverse(int * array, int size, int i)
 {
-  uint32_t b;
+  int b;
   for (int j = 0; j < size; j += 16)
   {
     b = array[j];
@@ -119,10 +119,10 @@ void Cache_tester::experiment_reverse(uint32_t * array, int size, int i)
   reverse.number.push_back(i);
 }
 
-void Cache_tester::experiment_random(uint32_t *array,
+void Cache_tester::experiment_random(int *array,
                                      int size, int i, int *shag)
 {
-  uint32_t b;
+  int b;
   for (int j = 0; j < size; j += 1)
   {
     b = array[shag[j]];
