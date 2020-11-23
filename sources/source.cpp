@@ -66,6 +66,8 @@ void Cache_tester::all_experiments()
     experiment_reverse(array, size, i);
     experiment_random(array, m, i, array_rand);
     delete[] array;
+    delete[] array_rand;
+    delete[] mass_shag;
   }
   out_info();
 }
