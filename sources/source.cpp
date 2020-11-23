@@ -36,6 +36,7 @@ void Cache_tester::all_experiments()
   {
     int size = massive_size[i] * 256;
     int *array = new int[size];
+    int *array2 = array;
     int m = massive_size[i] * 16;
     int k = 0;
     int shag = 0;
@@ -62,9 +63,10 @@ void Cache_tester::all_experiments()
     {
       array[j] = rand_r(&a)%100;
     }
-    experiment_direct(array, size, i);
-    experiment_reverse(array, size, i);
-    experiment_random(array, m, i, array_rand);
+    experiment_direct(array2, size, i);
+    experiment_reverse(array2, size, i);
+    experiment_random(array2, m, i, array_rand);
+    delete array2;
   }
   out_info();
 }
