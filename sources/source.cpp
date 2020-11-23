@@ -91,8 +91,6 @@ void Cache_tester::experiment_direct(int* array, int size, int i)
   r_time = std::chrono::duration_cast<std::chrono::microseconds>
       (finish - start).count();
   r_time = r_time / 1000;
-  std::cout << massive_size[i] << "Kb"
-            << " = " << r_time << " mcs" << std::endl;
   direct.time.push_back(r_time);
   direct.number.push_back(i);
 }
@@ -116,8 +114,6 @@ void Cache_tester::experiment_reverse(int* array, int size, int i)
   r_time = std::chrono::duration_cast<std::chrono::microseconds>(finish - start)
       .count();
   r_time = r_time / 1000;
-  std::cout << massive_size[i] << "Kb"
-            << " = " << r_time << " mcs" << std::endl;
   reverse.time.push_back(r_time);
   reverse.number.push_back(i);
 }
@@ -141,8 +137,6 @@ void Cache_tester::experiment_random(int* array, int size, int i, int *shag)
   r_time = std::chrono::duration_cast<std::chrono::microseconds>(finish - start)
       .count();
   r_time = r_time / 1000;
-  std::cout << massive_size[i] << "Kb"
-            << " = " << r_time << " mcs" << std::endl;
   random.time.push_back(r_time);
   random.number.push_back(i);
 }
