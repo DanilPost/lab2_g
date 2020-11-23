@@ -5,11 +5,8 @@
 
 #include <vector>
 #include <iostream>
-#include <chrono>
-#include <random>
 #include <time.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <chrono>
 #include <string>
 
 struct Out_put

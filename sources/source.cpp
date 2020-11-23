@@ -61,7 +61,8 @@ void Cache_tester::all_experiments()
 
     for (int j = 0; j < size; j+=1)
     {
-      array[j] = rand();
+      srand(time(0));
+      array[j] = rand()%100;
     }
     experiment_direct(array, size, i);
     experiment_reverse(array, size, i);
