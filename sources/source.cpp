@@ -94,7 +94,7 @@ void Cache_tester::experiment_direct(int *array, int size, int i)
   direct.number.push_back(i);
 }
 
-void Cache_tester::experiment_reverse(int * array, int size, int i)
+void Cache_tester::experiment_reverse(int *array, int size, int i)
 {
   int b;
   for (int j = 0; j < size; j += 16)
