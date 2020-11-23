@@ -47,10 +47,9 @@ void Cache_tester::all_experiments()
       shag = shag + 16;
     }
 
-    //srand(time(NULL));
-
     while (k < m)
     {
+      srand(time(NULL));
       int a = rand()%m;
       if (mass_shag[a] != 1)
       {
@@ -62,7 +61,7 @@ void Cache_tester::all_experiments()
 
     for (int j = 0; j < size; j+=1)
     {
-      array[j] = rand()%100;
+      array[j] = rand();
     }
     experiment_direct(array, size, i);
     experiment_reverse(array, size, i);
