@@ -28,6 +28,8 @@ class Cache_tester
   void out_info();
   ~Cache_tester();
  private:
+  const int number_of_runs = 1000;
+  const int shag_in_mass = 16;
   std::vector<int> massive_size;
   struct Out_put direct;
   struct Out_put reverse;
