@@ -34,9 +34,8 @@ class Cache_tester
   struct Out_put direct;
   struct Out_put reverse;
   struct Out_put random;
-  int n = 0;
+  int n;
   int min_size;
   int max_size;
-  float r_time = 0;
 };
 #endif // INCLUDE_HEADER_HPP_

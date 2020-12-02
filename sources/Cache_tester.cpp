@@ -1,6 +1,6 @@
 // Copyright 2020 Danil Postvaykin <postvaykin01@mail.ru>
 
-#include <header.hpp>
+#include <Cache_tester.hpp>
 
 Cache_tester::Cache_tester(int min, int max)
 {
@@ -17,6 +17,7 @@ void Cache_tester::set_massive_size()
   int a;
   a = min_size * for_min_size;
   massive_size.push_back(a);
+  n = 0;
   n += 1;
   while (a <= max_size/creat_mass)
   {
@@ -94,7 +95,7 @@ void Cache_tester::experiment_direct(int* array, int size, int i)
   }
   auto finish = std::chrono::high_resolution_clock::now();
   b += b;
-  r_time = std::chrono::duration_cast<std::chrono::microseconds>
+  float r_time = std::chrono::duration_cast<std::chrono::microseconds>
       (finish - start).count();
   r_time = r_time / number_of_runs;
   direct.time.push_back(r_time);
@@ -113,7 +114,7 @@ void Cache_tester::experiment_reverse(int* array, int size, int i)
   }
   auto finish = std::chrono::high_resolution_clock::now();
   b += b;
-  r_time = std::chrono::duration_cast<std::chrono::microseconds>(finish - start)
+  float r_time = std::chrono::duration_cast<std::chrono::microseconds>(finish - start)
       .count();
   r_time = r_time / number_of_runs;
   reverse.time.push_back(r_time);
@@ -133,7 +134,7 @@ void Cache_tester::experiment_random(int* array, int size, int i, int *shag)
   }
   auto finish = std::chrono::high_resolution_clock::now();
   b += b;
-  r_time = std::chrono::duration_cast<std::chrono::microseconds>(finish - start)
+  float r_time = std::chrono::duration_cast<std::chrono::microseconds>(finish - start)
       .count();
   r_time = r_time / number_of_runs;
   random.time.push_back(r_time);
